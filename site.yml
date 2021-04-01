@@ -1,0 +1,10 @@
+- hosts: 10.91.77.16
+  gather_facts: yes
+  remote_user: root
+  vars:
+      ansible_password: p@ssword123
+  tasks:
+      - name: Make some folder
+        file:
+            path: "/root/test"
+            state: directory
