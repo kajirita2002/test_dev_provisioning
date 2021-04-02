@@ -1,0 +1,19 @@
+---
+- name: sample book
+  hosts: ansible_clients
+  remote_user: root
+  become: true
+
+  tasks:
+    - name: install httpd
+      yum:
+        name: httpd
+        state: latest
+    - name: run httpd
+      service:
+        name: httpd
+        state: started
+    - name: create content
+      copy:
+        content: "welcome"
+        dest: /var/www/html/index.html
